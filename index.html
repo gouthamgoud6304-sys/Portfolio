@@ -198,22 +198,23 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px 24px;justify-content:space-bet
   .hero{padding-top:40px}
 }
 
+/* scroll reveal (only when JS is on) */
 @media(prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   .dot,.art .fl path,.dg path.a{animation:none}
   .btn{transition:none}
 }
 
-/* resume viewer modal */
+/* resume viewer */
 html.lock{overflow:hidden}
 .modal{position:fixed;inset:0;z-index:100;background:rgba(2,10,7,.88);display:flex;align-items:center;justify-content:center;padding:max(12px,env(safe-area-inset-top,0px)) max(12px,env(safe-area-inset-right,0px)) max(12px,env(safe-area-inset-bottom,0px)) max(12px,env(safe-area-inset-left,0px))}
-.sheet{width:min(960px,95vw);height:90vh;max-height:90vh;display:flex;flex-direction:column;background:var(--panel);border:1px solid var(--line-strong);border-radius:16px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.6)}
+.sheet{width:min(900px,95vw);height:88vh;max-height:88vh;display:flex;flex-direction:column;background:var(--panel);border:1px solid var(--line-strong);border-radius:16px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.6)}
 .sheet-h{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 16px;border-bottom:1px solid var(--line);flex-wrap:wrap;flex-shrink:0}
 .sheet-h h2{font-family:var(--mono);font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);font-weight:500}
 .sheet-h .acts{display:flex;gap:8px;flex-wrap:wrap}
 .sheet-b{flex:1;overflow:hidden;background:#0b1f17;min-height:0;position:relative}
 .sheet-b iframe{width:100%;height:100%;border:none;display:block}
-
+.msg{font-family:var(--mono);font-size:12.5px;color:var(--muted);min-height:1.3em;padding:8px 16px;border-top:1px solid var(--line)}
 .copy{font-family:var(--mono);font-size:12px;padding:3px 9px;border-radius:6px;border:1px solid var(--line-strong);background:var(--panel-2);color:var(--gold)}
 .copy:hover{border-color:var(--gold)}
 .pill{display:inline-flex;align-items:center;gap:10px;padding:10px 14px;border:1px solid var(--line-strong);border-radius:9px;background:var(--panel-2);font-family:var(--mono);font-size:13px;color:var(--white);flex-wrap:wrap;justify-content:center;max-width:100%;overflow-wrap:anywhere}
@@ -258,7 +259,7 @@ html.lock{overflow:hidden}
         <p class="lead">About two years at Ripple Smart Metering, working in the gap between the R&amp;D team and the production floor. I bring up new boards, test LoRaWAN gas and electricity meters and rework SMD boards by hand.</p>
         <p class="lead">I read and debug C/C++ firmware for ESP32 and STM32, use AI coding tools to speed up development and validate every build on real hardware. I also design 2-layer PCBs in EasyEDA.</p>
         <div class="cta">
-          <button type="button" class="btn primary" data-resume><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0l-5-5m5 5l5-5M4 21h16"/></svg>View &amp; Download Resume</button>
+          <button type="button" class="btn primary" data-resume><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0l-5-5m5 5l5-5M4 21h16"/></svg>Download resume</button>
           <a class="btn ghost" href="#projects">See my projects</a>
           <a class="btn ghost" href="#contact">Contact me</a>
         </div>
@@ -402,7 +403,7 @@ html.lock{overflow:hidden}
       <div class="card sk" style="--c:var(--green)"><h3>Test &amp; validation</h3><ul>
         <li>Board bring-up and power rail checks</li><li>Short-circuit and ground checks with a DMM</li><li>Active vs. deep-sleep current measurement</li><li>Functional and regression testing</li><li>OrbiWise LoRaWAN packet analysis</li></ul></div>
       <div class="card sk" style="--c:var(--sky)"><h3>Protocols, CAD &amp; tools</h3><ul>
-        <li>LoRaWAN (IN865, Class A/C, OTAA/ABP)</li><li>UART, I2C, SPI, I2S, ESP-NOW, Wi-Fi, GSM/GPRS, HTTP/REST</li><li>EasyEDA: schematic, 2-layer layout, Gerbers</li><li>PlatformIO, Arduino IDE, Git</li><li>Reading and debugging embedded C/C++</li></ul></div>
+        <li>LoRaWAN (IN865, Class A/C, OTAA/ABP)</li><li>UART, I2C, SPI, I2S, ESP-NOW, Wi-Fi, GSM, HTTP/REST</li><li>EasyEDA: schematic, 2-layer layout, Gerbers</li><li>PlatformIO, Arduino IDE, Git</li><li>Reading and debugging embedded C/C++</li></ul></div>
     </div>
   </div>
 </section>
@@ -413,8 +414,8 @@ html.lock{overflow:hidden}
     <div class="card how">
       <span class="big">HOW I WORK</span>
       <div>
-        <h3>Firmware: Integration, testing &amp; validation</h3>
-        <p>I understand embedded C/C++ architectures and protocol timings, and I leverage modern AI tools to accelerate prototyping and driver templates. My primary ownership begins where code meets hardware: flashing prototype boards, verifying bus timings (I2S, SPI, I2C, UART) on oscilloscopes and logic debuggers, and closing the gap between firmware bug reproduction and hardware manufacturing yield.</p>
+        <h3>Firmware: AI-assisted, hardware-validated</h3>
+        <p>I can read and understand embedded C/C++ and I use AI coding tools to speed up firmware development. I decide how the device should behave, then test every build on the real board, debug it with serial logs and a multimeter and re-test fixes for regressions. My focus is making sure the hardware and firmware work together.</p>
       </div>
     </div>
   </div>
@@ -440,13 +441,13 @@ html.lock{overflow:hidden}
     <div class="card">
       <span class="kicker">Contact</span>
       <h2 class="t">Looking for a test or product engineer?</h2>
-      <p>I'm based in Hyderabad. Copy my email or number below, or download my resume.</p>
+      <p>I'm based in Hyderabad. Copy my email or number below, or open my resume.</p>
       <div class="row">
         <span class="pill"><span id="em">gouthamgoud6304@gmail.com</span><button type="button" class="copy" data-copy="em">Copy</button></span>
         <span class="pill"><span id="ph">+91 6304741627</span><button type="button" class="copy" data-copy="ph">Copy</button></span>
       </div>
       <div class="row" style="margin-top:14px">
-        <button type="button" class="btn primary" data-resume><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0l-5-5m5 5l5-5M4 21h16"/></svg>View &amp; Download Resume</button>
+        <button type="button" class="btn primary" data-resume><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0l-5-5m5 5l5-5M4 21h16"/></svg>View &amp; download resume</button>
         <a class="btn ghost" href="https://www.linkedin.com/in/goutham-karupothula-b3b0b2273" target="_blank" rel="noopener noreferrer">LinkedIn</a>
         <a class="btn ghost" href="mailto:gouthamgoud6304@gmail.com">Email me</a>
       </div>
@@ -463,13 +464,12 @@ html.lock{overflow:hidden}
   </div>
 </footer>
 
-<!-- RESUME VIEWER MODAL -->
 <div class="modal" id="resume" role="dialog" aria-modal="true" aria-labelledby="rtitle" hidden>
   <div class="sheet">
     <div class="sheet-h">
       <h2 id="rtitle">Resume · Goutham Karupothula</h2>
       <div class="acts">
-        <a href="Goutham_Karupothula_Resume.pdf" target="_blank" class="btn ghost small">Open in Tab</a>
+        <a href="Goutham_Karupothula_Resume.pdf" target="_blank" rel="noopener noreferrer" class="btn ghost small">Open in Tab</a>
         <a href="Goutham_Karupothula_Resume.pdf" download="Goutham_Karupothula_Resume.pdf" class="btn primary small"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0l-5-5m5 5l5-5M4 21h16"/></svg>Download PDF</a>
         <button type="button" class="btn ghost small" id="rclose">Close</button>
       </div>
@@ -482,7 +482,24 @@ html.lock{overflow:hidden}
 
 <script>
 (function(){
-  // Copy button handler
+  var modal=document.getElementById('resume'),last=null;
+  function open(e){
+    if(e) e.preventDefault();
+    last=document.activeElement;
+    modal.hidden=false;
+    document.documentElement.classList.add('lock');
+    document.getElementById('rclose').focus();
+  }
+  function close(){
+    modal.hidden=true;
+    document.documentElement.classList.remove('lock');
+    if(last&&last.focus) last.focus();
+  }
+  Array.prototype.forEach.call(document.querySelectorAll('[data-resume]'),function(b){b.addEventListener('click',open)});
+  document.getElementById('rclose').addEventListener('click',close);
+  modal.addEventListener('click',function(e){if(e.target===modal)close()});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!modal.hidden)close()});
+
   Array.prototype.forEach.call(document.querySelectorAll('[data-copy]'),function(b){
     b.addEventListener('click',function(){
       var el=document.getElementById(b.getAttribute('data-copy')),t=el.textContent;
@@ -492,30 +509,6 @@ html.lock{overflow:hidden}
     });
   });
 
-  // Resume Modal Preview Handler
-  var modal = document.getElementById('resume');
-  function openModal(e){
-    if(e) e.preventDefault();
-    modal.hidden = false;
-    document.documentElement.classList.add('lock');
-    document.getElementById('rclose').focus();
-  }
-  function closeModal(){
-    modal.hidden = true;
-    document.documentElement.classList.remove('lock');
-  }
-  Array.prototype.forEach.call(document.querySelectorAll('[data-resume]'), function(b){
-    b.addEventListener('click', openModal);
-  });
-  document.getElementById('rclose').addEventListener('click', closeModal);
-  modal.addEventListener('click', function(e){
-    if(e.target === modal) closeModal();
-  });
-  document.addEventListener('keydown', function(e){
-    if(e.key === 'Escape' && !modal.hidden) closeModal();
-  });
-
-  // Nav link active observer
   try{
     var links=document.querySelectorAll('nav.links a'),map={};
     Array.prototype.forEach.call(links,function(a){map[a.getAttribute('href').slice(1)]=a});
